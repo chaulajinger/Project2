@@ -97,3 +97,43 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+
+//SPOTIFY
+//Ajax
+
+var colors = ["blue", "orange", "green", "gold"];
+
+//Color inspired albums. Subject to change!
+var blue = "6VhDYmsjHqRxKXd0z7hmXI";
+var orange = "392p3shh2jkxUxY2VHvlH8";
+var green = "5iS6VDjeV6KuOu66t1P1bn";
+var gold = "59ePhOhLFvSOFG4L5FRGzp";
+
+var accessToken = '.env';
+
+
+
+
+$.ajax({
+  //Currently hard-coded to blue. How to choose, TBD
+  url: 'https://api.spotify.com/v1/albums/' + blue,
+  type: 'GET',
+  headers: {
+      'Authorization' : 'Bearer ' + accessToken
+  },
+  
+  }).then(function(response){
+      console.log("artist: " + response.artists[0].name);
+      console.log("album: " + response.name);
+
+      $(".artist").append(response.artists[0].name)
+      $(".album").append(response.name)
+
+
+});
+
+
+
+

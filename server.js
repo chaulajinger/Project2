@@ -1,3 +1,16 @@
+//Add the code required to import the keys.js file and store it
+var keys = require('./keys');
+
+//Add code required to import spotify & twitter
+var Spotify = require('spotify');
+
+var fs = require('fs');
+var moment = require('moment');
+
+//Access keys.js info
+var spotifyKeys = keys.spotify;
+
+//////////////////////////////////////////////
 require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -46,3 +59,4 @@ db.sequelize.sync(syncOptions).then(function() {
 });
 
 module.exports = app;
+
