@@ -1,33 +1,222 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Fjord+One" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/survey.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <title>FRIENDS Finder.</title>
+  </head>
+  <body>
+    <img class="card-img" src="https://m.media-amazon.com/images/S/aplus-media/vc/9b6179da-6475-4e0b-bf16-b791773890ff._SR970,300_.png" alt="Card image">
+    <div class="card-img-overlay">
+      <div class="jumbotron jumbotron-fluid" style="margin-top: 40%">
+        <div class="container">
+          <div class="row">
+          <div class="col-sm-12">
+          <h1 class="display-3">What are your True Colors ?</h1>
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+          <form>
+              <br>
+              <h3><strong>Survey Says..</strong></h3>
+              <div class="row">
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                              <label for="q1">1. I’m the type who likes to act on a moments notice and squeeze the juice out of life.</label>
+                              <select class="form-control" id="q1">
+                                  <option value= "" disabled selected>Select An Option</option>
+                                  <option value="1">True</option>
+                                  <option value="2">False</option>
+                              </select>
+                          </div>
+                    </div>
+                </div>
+              <div class="row">
+                  <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="q2">2. I have a flair for recognizing and seizing opportunities.</label>
+                            <select class="form-control" id="q2">
+                                <option value= "" disabled selected>Select An Option</option>
+                                <option value="1">True</option>
+                                <option value="2">False</option>
+                            </select>
+                        </div>
+                  </div>
+              </div>
+              <div class="row">
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                              <label for="q3">3. I need fun, variety and excitement.</label>
+                              <select class="form-control" id="q3">
+                                  <option value= "" disabled selected>Select An Option</option>
+                                  <option value="1">True</option>
+                                  <option value="2">False</option>
+                              </select>
+                          </div>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                              <label for="q4">4. I’m organized, dependable and responsible.</label>
+                              <select class="form-control" id="q4">
+                                  <option value= "" disabled selected>Select An Option</option>
+                                  <option value="1">True</option>
+                                  <option value="2">False</option>
+                              </select>
+                          </div>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                              <label for="q5">5. I value order and cherish the traditions of home and family.</label>
+                              <select class="form-control" id="q5">
+                                  <option value= "" disabled selected>Select An Option</option>
+                                  <option value="1">True</option>
+                                  <option value="2">False</option>
+                              </select>
+                          </div>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                              <label for="q6">6. I like to know and follow the rules and want others to do so too.</label>
+                              <select class="form-control" id="q6">
+                                  <option value= "" disabled selected>Select An Option</option>
+                                  <option value="1">True</option>
+                                  <option value="2">False</option>
+                              </select>
+                          </div>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                              <label for="q7">7. I need to be responsible, useful, and like to belong.</label>
+                              <select class="form-control" id="q7">
+                                  <option value= "" disabled selected>Select An Option</option>
+                                  <option value="1">True</option>
+                                  <option value="2">False</option>
+                              </select>
+                          </div>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                              <label for="q8">8. I like to acquire knowledge and understanding.</label>
+                              <select class="form-control" id="q8">
+                                  <option value= "" disabled selected>Select An Option</option>
+                                  <option value="1">True</option>
+                                  <option value="2">False</option>
+                              </select>
+                          </div>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class="col-sm-12">
+                          <div class="form-group">
+                              <label for="q9">9. I have an aptitude for critique and problem-solving.</label>
+                              <select class="form-control" id="q9">
+                                  <option value= "" disabled selected>Select An Option</option>
+                                  <option value="1">True</option>
+                                  <option value="2">False</option>
+                              </select>
+                          </div>
+                    </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="form-group">
+                            <label for="q10">10. I need explanations, answers and evidence.</label>
+                            <select class="form-control" id="q10">
+                                <option value= "" disabled selected>Select An Option</option>
+                                <option value="1">True</option>
+                                <option value="2">False</option>
+                            </select>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                   <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="q11">11. I’m direct and decisive.</label>
+                            <select class="form-control" id="q11">
+                                <option value= "" disabled selected>Select An Option</option>
+                                <option value="1">True</option>
+                                <option value="2">False</option>
+                            </select>
+                        </div>
+                    </div>
+              </div>
+              <button id="submitButton" type="submit" name="action" class="btn btn-primary" data-toggle="modal">Send</button>
+          </form>
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h4 class="lead leader">Congratulations, You've Been Selected Into<h5 id="userName"></h5></strong></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-body">
+              <h3 id="userBio"></h3>
+          </div>
+          </div>
       </div>
-    </div>
   </div>
-</div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+  <script type="text/javascript">
+     $(document).ready(function() { 
+     $("#submitButton").on("click", function(event) {
+          event.preventDefault();
+          var userData = {
+              name: $("#name").val(),
+              pic: $("#photo").val(),
+              bio: $("#bio").val(),
+              scores: [
+                  $("#q1").val(),
+                  $("#q2").val(),
+                  $("#q3").val(),
+                  $("#q4").val(),
+                  $("#q5").val(),
+                  $("#q6").val(),
+                  $("#q7").val(),
+                  $("#q8").val(),
+                  $("#q9").val(),
+                  $("#q10").val(),
+                  $("#q11").val(),
+              ]
+          };
+     
+      $.post("/api/colors", userData, function (data) {
+          $("#userName").text(data.matchName);
+          $("#userBio").text(data.matchBio);
+      });
+     
+      $(".modal").modal();
+      $("#name").val("");
+      $("#photo").val("");
+      $("#q1").val("");
+      $("#q2").val("");
+      $("#q3").val("");
+      $("#q4").val("");
+      $("#q5").val("");
+      $("#q6").val("");
+      $("#q7").val("");
+      $("#q8").val("");
+      $("#q9").val("");
+      $("#q10").val("");
+      $("#q11").val("");
+  });
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</body>
+</html>
