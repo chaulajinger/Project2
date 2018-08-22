@@ -135,5 +135,50 @@ $.ajax({
 });
 
 
+//---------------------------------------------------------------
 
+//Survey data
+$(document).ready(function() { 
+     $("#submitButton").on("click", function(event) {
+          event.preventDefault();
+          var userData = {
+              name: $("#name").val(),
+              pic: $("#photo").val(),
+              bio: $("#bio").val(),
+              scores: [
+                  $("#q1").val(),
+                  $("#q2").val(),
+                  $("#q3").val(),
+                  $("#q4").val(),
+                  $("#q5").val(),
+                  $("#q6").val(),
+                  $("#q7").val(),
+                  $("#q8").val(),
+                  $("#q9").val(),
+                  $("#q10").val(),
+                  $("#q11").val(),
+              ]
+          };
+     
+      $.post("/api/colors", userData, function (data) {
+          $("#userName").text(data.matchName);
+          $("#userBio").text(data.matchBio);
+      });
+     
+      $(".modal").modal();
+      $("#name").val("");
+      $("#photo").val("");
+      $("#q1").val("");
+      $("#q2").val("");
+      $("#q3").val("");
+      $("#q4").val("");
+      $("#q5").val("");
+      $("#q6").val("");
+      $("#q7").val("");
+      $("#q8").val("");
+      $("#q9").val("");
+      $("#q10").val("");
+      $("#q11").val("");
+  });
+});
 
