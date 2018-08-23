@@ -161,8 +161,8 @@ $(document).ready(function() {
           };
      
       $.post("/api/colors", userData, function (data) {
-          $("#userName").text(data.matchName);
-          $("#userBio").text(data.matchBio);
+          $("#userName").append(userData.matchName);
+          $("#userBio").append(userData.matchBio);
       });
      
       $(".modal").modal();

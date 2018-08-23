@@ -29,5 +29,13 @@
     "prettier": "^1.13.7"
   },
   "keywords": [],
-  "author": ""
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LonLonRancher/Project2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LonLonRancher/Project2/issues"
+  },
+  "homepage": "https://github.com/LonLonRancher/Project2#readme"
 }
