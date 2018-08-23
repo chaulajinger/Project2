@@ -20,6 +20,17 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/result", function (req, res) {
+    //req.body.q1
+    var data = {
+      matchName: "somebody",
+      matchBio: "bio"
+    };
+    res.render("result", data);
+  });
+
+  //data variable represents all of the user input data in our database that we want to render on the result page:
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
