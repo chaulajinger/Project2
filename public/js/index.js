@@ -169,9 +169,18 @@ $(document).ready(function() {
           };
      
       $.post("/api/colors", userData, function (data) {
-          $("#userName").append(userData.matchName);
-          $("#userBio").append(userData.matchBio);
+          $("#userName").append(userData.name);
+          $("#userPic").append(userData.pic);
+          $("#userBio").append(userData.bio);
+          $("#scores").append(userData.scores);
       });
+
+      $.post("/api/examples/:id", userData, function (data) {
+        $("#userName").append(userData.name);
+        $("#userPic").append(userData.pic);
+        $("#userBio").append(userData.bio);
+        $("#scores").append(userData.scores);
+    });
      
       $(".modal").modal();
       $("#name").val("");
