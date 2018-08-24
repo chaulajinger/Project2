@@ -150,7 +150,7 @@ $(document).ready(function() {
      $("#submitButton").on("click", function(event) {
           event.preventDefault();
           var userData = {
-              name: $("#name").val(),
+              name: person,
               pic: $("#photo").val(),
               bio: $("#bio").val(),
               scores: [
@@ -196,6 +196,18 @@ $(document).ready(function() {
       $("#q9").val("");
       $("#q10").val("");
       $("#q11").val("");
+
+      //Show name, answers in modal
+      $("#userName").append("Thank you " + userData.name +". You answered: <br>");
+
+      for (i = 0; i < userData.scores.length; i++) {
+        $("#userName").append(userData.scores[i], "<br>");
+      };
+
+      //Show color in modal
+      $("#userName").append("COLOR WILL BE HERE!");
+
+
   });
 });
 
