@@ -139,6 +139,14 @@ $.ajax({
 
 //Survey data
 $(document).ready(function() { 
+
+  var person = prompt("Please enter your name", "(John Doe)");
+
+  if (person != null) {
+    document.getElementById("welcomeYou").innerHTML =
+    "Hello " + person + "! How are you today?";
+}
+
      $("#submitButton").on("click", function(event) {
           event.preventDefault();
           var userData = {
