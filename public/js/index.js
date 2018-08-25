@@ -2,7 +2,7 @@
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $colorList = $("#color-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -139,6 +139,11 @@ $.ajax({
 
 //Survey data
 $(document).ready(function() { 
+  //Intialize color values
+  var blue = 0;
+  var orange = 0;
+  var green = 0;
+  var gold = 0;
 
   var person = prompt("Please enter your name", "(John Doe)");
 
@@ -200,11 +205,17 @@ $(document).ready(function() {
       //Show name, answers in modal
       $("#userName").append("Thank you " + userData.name +". You answered: <br>");
 
+
+
       for (i = 0; i < userData.scores.length; i++) {
         $("#userName").append(userData.scores[i], "<br>");
+        if (q1 == true){
+
+        }
       };
 
       //Show color in modal
+
       $("#userName").append("COLOR WILL BE HERE!");
 
 
