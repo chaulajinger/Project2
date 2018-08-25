@@ -11,11 +11,11 @@ module.exports = function(app) {
     });
   });
 
-  // Load example page and pass in an example by id
+  // Load result page and pass in an color by id
   app.get("/example/:id", function(req, res) {
-    db.Color.findOne({ where: { id: req.params.id } }).then(function(colors) {
+    db.Color.findOne({ where: { id: req.params.id } }).then(function(color) {
       res.render("example", {
-        colorstable: colors
+        colorstable: color
       });
     });
   });
