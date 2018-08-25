@@ -3,19 +3,19 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Color.findAll({}).then(function(colorstable) {
+    db.Color.findAll({}).then(function(Color) {
       res.render("index", {
         msg: "Welcome!",
-        colorstable: colorstable
+        colors: Color
       });
     });
   });
 
-  // Load example page and pass in an example by id
+  // Load result page and pass in an color by id
   app.get("/example/:id", function(req, res) {
-    db.Color.findOne({ where: { id: req.params.id } }).then(function(colorstable) {
+    db.Color.findOne({ where: { id: req.params.id } }).then(function(color) {
       res.render("example", {
-        colorstable: colorstable
+        colorstable: color
       });
     });
   });
