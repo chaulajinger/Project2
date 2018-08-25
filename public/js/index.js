@@ -97,3 +97,117 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+
+//SPOTIFY
+//Ajax
+
+var colors = ["blue", "orange", "green", "gold"];
+
+//Color inspired albums. Subject to change!
+var blue = "6VhDYmsjHqRxKXd0z7hmXI";
+var orange = "392p3shh2jkxUxY2VHvlH8";
+var green = "5iS6VDjeV6KuOu66t1P1bn";
+var gold = "59ePhOhLFvSOFG4L5FRGzp";
+
+var accessToken = '.env';
+
+
+
+
+$.ajax({
+  //Currently hard-coded to blue. How to choose, TBD
+  url: 'https://api.spotify.com/v1/albums/' + blue,
+  type: 'GET',
+  headers: {
+      'Authorization' : 'Bearer ' + accessToken
+  },
+  
+  }).then(function(response){
+      console.log("artist: " + response.artists[0].name);
+      console.log("album: " + response.name);
+
+      $(".artist").append(response.artists[0].name)
+      $(".album").append(response.name)
+
+
+});
+
+
+//---------------------------------------------------------------
+
+//Survey data
+$(document).ready(function() { 
+
+  var person = prompt("Please enter your name", "(John Doe)");
+
+  if (person != null) {
+    document.getElementById("welcomeYou").innerHTML =
+    "Hello " + person + "! How are you today?";
+}
+
+     $("#submitButton").on("click", function(event) {
+          event.preventDefault();
+          var userData = {
+              name: person,
+              pic: $("#photo").val(),
+              bio: $("#bio").val(),
+              scores: [
+                  $("#q1").val(),
+                  $("#q2").val(),
+                  $("#q3").val(),
+                  $("#q4").val(),
+                  $("#q5").val(),
+                  $("#q6").val(),
+                  $("#q7").val(),
+                  $("#q8").val(),
+                  $("#q9").val(),
+                  $("#q10").val(),
+                  $("#q11").val(),
+              ]
+          };
+     
+      $.post("/api/colors", userData, function (data) {
+          $("#userName").append(userData.name);
+          $("#userPic").append(userData.pic);
+          $("#userBio").append(userData.bio);
+          $("#scores").append(userData.scores);
+      });
+
+      $.post("/api/examples/:id", userData, function (data) {
+        $("#userName").append(userData.name);
+        $("#userPic").append(userData.pic);
+        $("#userBio").append(userData.bio);
+        $("#scores").append(userData.scores);
+    });
+     
+      $(".modal").modal();
+      $("#name").val("");
+      $("#photo").val("");
+      $("#q1").val("");
+      $("#q2").val("");
+      $("#q3").val("");
+      $("#q4").val("");
+      $("#q5").val("");
+      $("#q6").val("");
+      $("#q7").val("");
+      $("#q8").val("");
+      $("#q9").val("");
+      $("#q10").val("");
+      $("#q11").val("");
+
+      //Show name, answers in modal
+      $("#userName").append("Thank you " + userData.name +". You answered: <br>");
+
+      for (i = 0; i < userData.scores.length; i++) {
+        $("#userName").append(userData.scores[i], "<br>");
+      };
+
+      //Show color in modal
+      $("#userName").append("COLOR WILL BE HERE!");
+
+
+  });
+});
+
