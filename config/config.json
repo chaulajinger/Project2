@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "$Section80",
     "database": "colors",
 
     "host": "localhost",
@@ -9,7 +9,7 @@
   },
   "test": {
     "username": "root",
-    "password": "",
+    "password": "$Section80",
     "database": "colors",
 
     "host": "localhost",

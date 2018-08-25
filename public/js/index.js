@@ -168,7 +168,7 @@ $(document).ready(function() {
               ]
           };
      
-      $.post("/api/colors", userData, function (data) {
+      $.post("/api/colors/:id", userData, function (data) {
           $("#userName").append(userData.name);
           $("#userPic").append(userData.pic);
           $("#userBio").append(userData.bio);
@@ -204,10 +204,11 @@ $(document).ready(function() {
         $("#userName").append(userData.scores[i], "<br>");
       };
 
+
       //Show color in modal
       $("#userName").append("COLOR WILL BE HERE!");
-
-
+      //Send button (click handler) uses ajax to submit post request to the API that we have written, 
+      //the response needs to be a link containing ID of created Item.
   });
 });
 
