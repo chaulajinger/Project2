@@ -5,6 +5,17 @@
         <h1>{{msg}}</h1>
         <h2 id="welcomeYou">This is our Home Page!</h2>
 
+        <h3>----COLORS list here-----</h3>
+        <ul id="color-list" class="list-group">
+          {{#each colors}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.details}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
+        <h3>----colors end here--------------</h3>
+
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             

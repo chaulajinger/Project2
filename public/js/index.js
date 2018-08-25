@@ -1,19 +1,19 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $colorText = $("#color-text");
+var $colorDescription = $("#color-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $colorList = $("#color-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveExample: function(color) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
       url: "api/examples",
-      data: JSON.stringify(example)
+      data: JSON.stringify(color)
     });
   },
   getExamples: function() {
@@ -33,15 +33,15 @@ var API = {
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+    var $colors = data.map(function(example) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(colors.text)
+        .attr("href", "/example/" + colors.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": colors.id
         })
         .append($a);
 
@@ -54,8 +54,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $colorList.empty();
+    $colorList.append($colors);
   });
 };
 
@@ -96,7 +96,7 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$colorList.on("click", ".delete", handleDeleteBtnClick);
 
 
 
@@ -139,6 +139,8 @@ $.ajax({
 
 //Survey data
 $(document).ready(function() { 
+  console.log("page ready");
+
 
   var person = prompt("Please enter your name", "(John Doe)");
 
@@ -183,6 +185,124 @@ $(document).ready(function() {
     });
      
       $(".modal").modal();
+
+      //Intialize color values
+      var blue = 0;
+      var orange = 0;
+      var green = 0;
+      var gold = 0;
+
+      //Show name, answers in modal
+      $("#userName").append("Thank you " + userData.name +". You answered: <br>");
+
+      var result = "(nothing chosen yet!)";
+      var q1 = $("#q1").val();
+      var q2 = $("#q2").val();
+      var q3 = $("#q3").val();
+      var q4 = $("#q4").val();
+      var q5 = $("#q5").val();
+      var q6 = $("#q6").val();
+      var q7 = $("#q7").val();
+      var q8 = $("#q8").val();
+      var q9 = $("#q9").val();
+      var q10 = $("#q10").val();
+      var q11 = $("#q11").val();
+
+
+      console.log("scores: " + userData.scores);
+
+      for (i = 0; i < userData.scores.length; i++) {
+        $("#userName").append(userData.scores[i], "<br>");        
+      };
+
+      if (q1 == "true"){
+        orange++; gold++
+      }else{
+        blue++; green++
+      }
+
+      if (q2 == "true"){
+        orange++; gold++;
+      }else{
+        blue++; greeen++;
+      }
+
+      if (q3 == "true"){
+        blue++; orange++;
+        }else{
+          gold++; green++;
+        }
+
+      if (q4 == "true"){
+        gold++; green++;
+      }
+      
+      if (q5 == "true"){
+        blue++; gold++;
+      }else{
+        orange++; green++;        
+      }
+
+      if (q6 == "true"){
+        blue++; gold++;
+      }else{
+        orange++; green++;
+      }
+
+      if (q7 == "true"){
+        blue++; gold++
+       }else{
+        green++; orange++;
+      }
+
+      if (q8 == "true"){
+        blue++; gold++
+      }else{orange++; blue++;
+      }
+
+      if (q9 == "true"){
+        green++; gold++
+       }else{
+        orange++; blue++;
+      }
+
+      if (q10 == "true"){
+        green++; gold++
+      }else{
+        orange++; blue++;
+      }
+
+      if (q11 == "true"){
+        orange++; gold++
+       }else{
+        green++; blue++;
+      }
+
+
+      if (blue > 5) {
+        result = "blue";
+      }
+
+      if (orange > 5){
+        result = "orange";
+      }
+
+      if (gold > 5){
+        result = "gold";
+      }
+
+      if (green > 5){
+        result = "green";
+      }
+
+      //Show color in modal
+      console.log("blueScore:" + blue);
+      console.log("orangeScore:" + orange);
+      console.log("goldScore:" + gold);
+      console.log("greenScore:" + green);
+
+      console.log("Your color is ", result);
+      $("#userName").append("Your color is ", result);
       $("#name").val("");
       $("#photo").val("");
       $("#q1").val("");
@@ -196,16 +316,6 @@ $(document).ready(function() {
       $("#q9").val("");
       $("#q10").val("");
       $("#q11").val("");
-
-      //Show name, answers in modal
-      $("#userName").append("Thank you " + userData.name +". You answered: <br>");
-
-      for (i = 0; i < userData.scores.length; i++) {
-        $("#userName").append(userData.scores[i], "<br>");
-      };
-
-      //Show color in modal
-      $("#userName").append("COLOR WILL BE HERE!");
 
 
   });
