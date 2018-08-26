@@ -11,6 +11,13 @@ module.exports = function(app) {
     });
   });
 
+
+  app.get("/colors/:color", function(req, res) {
+    console.log("colors" + req.params.color.toLowerCase());
+      res.render(req.params.color.toLowerCase() , {
+      });
+  });
+
   // Load result page and pass in an color by id
   app.get("/example/:id", function(req, res) {
     db.Color.findOne({ where: { id: req.params.id } }).then(function(color) {
