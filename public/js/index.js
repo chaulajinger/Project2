@@ -164,21 +164,18 @@ $(document).ready(function() {
         ]
     };
      
-<<<<<<< HEAD
       $.post("/api/colors/:id", userData, function (data) {
           $("#userName").append(userData.name);
           $("#userPic").append(userData.pic);
           $("#userBio").append(userData.bio);
           $("#scores").append(userData.scores);
       });
-=======
     $.post("/api/colors", userData, function (data) {
         $("#userName").append(userData.name);
         $("#userPic").append(userData.pic);
         $("#userBio").append(userData.bio);
         $("#scores").append(userData.scores);
     });
->>>>>>> 7655bff352b7436bcc4c5fa4fb829582b9b5f64b
 
       $.post("/api/examples/:id", userData, function (data) {
         $("#userName").append(userData.name);
@@ -211,18 +208,16 @@ $(document).ready(function() {
       var q11 = $("#q11").val();
 
       //List answers on the modal
-      $("#userName").append("Thank you " + userData.name +". You answered: <br>");
-      for (i = 0; i < userData.scores.length; i++) {
-        $("#userName").append(userData.scores[i], "<br>");        
-      };
+      //$("#userName").append("Thank you " + userData.name +". You answered: <br>");
+      //for (i = 0; i < userData.scores.length; i++) {
+      // $("#userName").append(userData.scores[i], "<br>");        
+      //};
 
-<<<<<<< HEAD
 
       //Show color in modal
-      $("#userName").append("COLOR WILL BE HERE!");
+      //$("#userName").append("COLOR WILL BE HERE!");
       //Send button (click handler) uses ajax to submit post request to the API that we have written, 
       //the response needs to be a link containing ID of created Item.
-=======
       if (q1 == "true"){
         orange++; gold++
       }else{
@@ -243,6 +238,8 @@ $(document).ready(function() {
 
       if (q4 == "true"){
         gold++; green++;
+      }else{
+        blue++; orange++;
       }
       
       if (q5 == "true"){
@@ -288,19 +285,19 @@ $(document).ready(function() {
 
 
       if (blue > 5) {
-        result = "blue";
+        result = "Blue";
       }
 
       if (orange > 5){
-        result = "orange";
+        result = "Orange";
       }
 
       if (gold > 5){
-        result = "gold";
+        result = "Gold";
       }
 
       if (green > 5){
-        result = "green";
+        result = "Green";
       }
 
     //Show results
@@ -310,9 +307,6 @@ $(document).ready(function() {
     console.log("greenScore:" + green);
 
     console.log("Your color is ", result);
-    $("#userName").append("Your color is ", result);
-
->>>>>>> 7655bff352b7436bcc4c5fa4fb829582b9b5f64b
+    $("#userName").append("CONGRATULATIONS " + userData.name + " " + result + " Is Your TRUE COLOR !");
   });
 });
-
