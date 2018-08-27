@@ -11,6 +11,12 @@ module.exports = function(app) {
     });
   });
 
+app.post("/colors", function(req, res) {
+  let reqColor = req.body.color();
+    console.log(req.body);
+    res.render("colors", reqColor);
+});
+
 
   app.get("/colors/:color", function(req, res) {
     console.log("colors " + req.params.color.toLowerCase());

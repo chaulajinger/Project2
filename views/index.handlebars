@@ -18,7 +18,7 @@
         <h3>----colors end here--------------</h3>
         -->
 
-        <form class="clearfix mb-4" action="POST">
+        <form action="/colors" method="POST">
           <div class="form-group">
             
             
@@ -31,14 +31,12 @@
           <h1 class="display-3">What are your True Colors ?</h1>
           </div>
           </div>
-          <form>
+          <form action="/colors" method="POST">
               <br>
               <h3><strong>Survey Says..</strong></h3>
               <div class="row">
                     <div class="col-sm-12">
-                              <form class="clearfix mb-4" action="POST">
-
-                          <div class="form-group ">
+                          <div class="form-group">
                               <label for="q1">1. I’m the type who likes to act on a moments notice and squeeze the juice out of life.</label>
                               <select class="form-control" id="q1">
                                   <option value= "" disabled selected>Select An Option</option>
@@ -170,6 +168,7 @@
               </div>
               <button id="submitButton" type="submit" name="action" class="btn btn-primary" data-toggle="modal">Send</button>
           </form>
+        </form>
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal">
   <div class="modal-dialog modal-lg">
       <div class="modal-content">
