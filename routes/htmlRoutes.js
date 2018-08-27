@@ -11,11 +11,11 @@ module.exports = function(app) {
     });
   });
 
-app.post("/colors", function(req, res) {
-  let reqColor = req.body.color();
-    console.log(req.body);
-    res.render("colors", reqColor);
-});
+// app.post("/colors", function(req, res) {
+//   let reqColor = req.body.color.toLowerCase();
+//     console.log(req.body);
+//     res.render("colors", reqColor);
+// });
 
 
   app.get("/colors/:color", function(req, res) {
