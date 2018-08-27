@@ -4,7 +4,7 @@ $(function () {
 $("#nav-link").on("click",() => {
   if(result !== noResult){
     return $.get({
-      url: "/colors/" + result
+      url:window.location.href = "/colors/" + color
     }); 
   }
 });
