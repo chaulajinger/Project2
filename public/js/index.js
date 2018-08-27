@@ -117,35 +117,35 @@ $("#nav-link").on("click",() => {
 
   var colors = ["blue", "orange", "green", "gold"];
 
-  //Color inspired albums. Subject to change!
-  var blueAlbum = "6VhDYmsjHqRxKXd0z7hmXI";
-  var orangeAlbum = "392p3shh2jkxUxY2VHvlH8";
-  var greenAlbum = "5iS6VDjeV6KuOu66t1P1bn";
-  var goldAlbum = "59ePhOhLFvSOFG4L5FRGzp";
+  // //Color inspired albums. Subject to change!
+  // var blueAlbum = "6VhDYmsjHqRxKXd0z7hmXI";
+  // var orangeAlbum = "392p3shh2jkxUxY2VHvlH8";
+  // var greenAlbum = "5iS6VDjeV6KuOu66t1P1bn";
+  // var goldAlbum = "59ePhOhLFvSOFG4L5FRGzp";
 
-  var accessToken = '.env';
+  // var accessToken = '.env';
 
-  $.ajax({
-    //Currently hard-coded to blue. How to choose, TBD
-    url: 'https://api.spotify.com/v1/albums/' + blueAlbum,
-    type: 'GET',
-    headers: {
-      'Authorization': 'Bearer ' + accessToken
-    },
+  // $.ajax({
+  //   //Currently hard-coded to blue. How to choose, TBD
+  //   url: 'https://api.spotify.com/v1/albums/' + blueAlbum,
+  //   type: 'GET',
+  //   headers: {
+  //     'Authorization': 'Bearer ' + accessToken
+  //   },
 
-  }).then(function (response) {
-    console.log("artist: " + response.artists[0].name);
-    console.log("album: " + response.name);
+  // }).then(function (response) {
+  //   console.log("artist: " + response.artists[0].name);
+  //   console.log("album: " + response.name);
 
-    $(".artist").append(response.artists[0].name)
-    $(".album").append(response.name)
-  });
+  //   $(".artist").append(response.artists[0].name)
+  //   $(".album").append(response.name)
+  // });
 
 
-  //-----------------------------------------------------------------------------
-  //Survey data
-  $(document).ready(function () {
-    console.log("page ready");
+  // //-----------------------------------------------------------------------------
+  // //Survey data
+  // //$(document).ready(function () {
+  //   console.log("page ready");
 
 
     var person = prompt("Please enter your name.");
@@ -176,25 +176,25 @@ $("#nav-link").on("click",() => {
         ]
       };
 
-      $.post("/api/colors/:id", userData, function (data) {
-        $("#userName").append(userData.name);
-        $("#userPic").append(userData.pic);
-        $("#userBio").append(userData.bio);
-        $("#scores").append(userData.scores);
-      });
-      $.post("/api/colors", userData, function (data) {
-        $("#userName").append(userData.name);
-        $("#userPic").append(userData.pic);
-        $("#userBio").append(userData.bio);
-        $("#scores").append(userData.scores);
-      });
+      // $.post("/api/colors/:id", userData, function (data) {
+      //   $("#userName").append(userData.name);
+      //   $("#userPic").append(userData.pic);
+      //   $("#userBio").append(userData.bio);
+      //   $("#scores").append(userData.scores);
+      // });
+      // $.post("/api/colors", userData, function (data) {
+      //   $("#userName").append(userData.name);
+      //   $("#userPic").append(userData.pic);
+      //   $("#userBio").append(userData.bio);
+      //   $("#scores").append(userData.scores);
+      // });
 
-      $.post("/api/examples/:id", userData, function (data) {
-        $("#userName").append(userData.name);
-        $("#userPic").append(userData.pic);
-        $("#userBio").append(userData.bio);
-        $("#scores").append(userData.scores);
-      });
+      // $.post("/api/examples/:id", userData, function (data) {
+      //   $("#userName").append(userData.name);
+      //   $("#userPic").append(userData.pic);
+      //   $("#userBio").append(userData.bio);
+      //   $("#scores").append(userData.scores);
+      // });
 
       $(".modal").modal();
 
@@ -238,7 +238,7 @@ $("#nav-link").on("click",() => {
       if (q2) {
         orange++; gold++;
       } else {
-        blue++; greeen++;
+        blue++; green++;
       }
 
       if (q3) {
@@ -321,5 +321,5 @@ $("#nav-link").on("click",() => {
       console.log("Your color is ", result);
       $("#userName").append("CONGRATULATIONS " + userData.name + " " + result + " Is Your TRUE COLOR !");
     });
-  });
+  //});
 });
