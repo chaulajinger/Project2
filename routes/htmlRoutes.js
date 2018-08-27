@@ -13,7 +13,7 @@ module.exports = function(app) {
 
 
   app.get("/colors/:color", function(req, res) {
-    console.log("colors" + req.params.color.toLowerCase());
+    console.log("colors " + req.params.color.toLowerCase());
       res.render(req.params.color.toLowerCase() , {
       });
   });
