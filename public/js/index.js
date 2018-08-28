@@ -290,7 +290,7 @@ $("#nav-link").on("click",() => {
       }
 
       if (q16) {
-        orange++
+        orange++;
       }
 
       if (q17) {
@@ -325,12 +325,14 @@ $("#nav-link").on("click",() => {
       console.log("greenScore:" + green);
 
       console.log("Your color is ", result);
+
       $("#userName").append(`CONGRATULATIONS ${userData.name.toUpperCase()} ${result.toUpperCase()} IS YOUR TRUE COLOR!<br>
       <a href="/colors/${result}"
       id= "#navlink"
       class= "#nav-link btn btn-primary btn-lg active"
       role= "button"
       aria-pressed="true"> Primary link </a>`)
+
     });
   //});
 });
