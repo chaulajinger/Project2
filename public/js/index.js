@@ -4,7 +4,7 @@ $(function () {
 $("#nav-link").on("click",() => {
   if(result !== noResult){
     return $.get({
-      url:window.location.href = "/colors/" + color
+      url:window.location.href = "/colors/" + color + ".handlebars"
     }); 
   }
 });
@@ -144,7 +144,7 @@ $("#nav-link").on("click",() => {
 
   // //-----------------------------------------------------------------------------
   // //Survey data
-  // //$(document).ready(function () {
+  //$(document).ready(function () {
   //   console.log("page ready");
 
 
@@ -332,6 +332,7 @@ $("#nav-link").on("click",() => {
       class= "#nav-link btn btn-danger btn-lg active"
       role= "button"
       aria-pressed="true"> Find Out More Here </a>`)
+
 
     });
   //});
