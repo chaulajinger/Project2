@@ -152,7 +152,7 @@ $("#nav-link").on("click",() => {
 
     if (person != null) {
       document.getElementById("welcomeYou").innerHTML =
-        "Hello " + person + "! How are you today?";
+        "Hello " + person + " , Do You Know Your True Colors ?";
     }
 
     $("#submitButton").on("click", function (event) {
@@ -329,9 +329,10 @@ $("#nav-link").on("click",() => {
       $("#userName").append(`CONGRATULATIONS ${userData.name.toUpperCase()} ${result.toUpperCase()} IS YOUR TRUE COLOR!<br>
       <a href="/colors/${result}"
       id= "#navlink"
-      class= "#nav-link btn btn-primary btn-lg active"
+      class= "#nav-link btn btn-danger btn-lg active"
       role= "button"
-      aria-pressed="true"> Primary link </a>`)
+      aria-pressed="true"> Find Out More Here </a>`)
+
 
     });
   //});
