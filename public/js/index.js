@@ -230,87 +230,93 @@ $("#nav-link").on("click",() => {
       //Send button (click handler) uses ajax to submit post request to the API that we have written, 
       //the response needs to be a link containing ID of created Item.
       if (q1) {
-        orange++; gold++
-      } else {
-        blue++; green++
+        blue++;
       }
 
       if (q2) {
-        orange++; gold++;
-      } else {
-        blue++; green++;
+        green++;
       }
 
       if (q3) {
-        blue++; orange++;
-      } else {
-        gold++; green++;
+       gold++;
       }
 
       if (q4) {
-        gold++; green++;
-      } else {
-        blue++; orange++;
+        orange++;
       }
 
       if (q5) {
-        blue++; gold++;
-      } else {
-        orange++; green++;
+        blue++;
       }
 
       if (q6) {
-        blue++; gold++;
-      } else {
-        orange++; green++;
+        green++;
       }
 
       if (q7) {
-        blue++; gold++
-      } else {
-        green++; orange++;
+        gold++;
       }
 
       if (q8) {
-        blue++; gold++
-      } else {
-        orange++; blue++;
+        orange++;
       }
 
       if (q9) {
-        green++; gold++
-      } else {
-        orange++; blue++;
+        blue++;
       }
 
       if (q10) {
-        green++; gold++
-      } else {
-        orange++; blue++;
+        green++;
       }
 
       if (q11) {
-        orange++; gold++
-      } else {
-        green++; blue++;
+        gold++;
       }
 
-
-      if (blue > 5) {
-        result = "Blue";
+      if (q12) {
+        orange++;
       }
 
-      if (orange > 5) {
-        result = "Orange";
+      if (q13) {
+        blue++;
       }
 
-      if (gold > 5) {
-        result = "Gold";
+      if (q14) {
+        green++;
       }
 
-      if (green > 5) {
-        result = "Green";
+      if (q15) {
+        gold++;
       }
+
+      if (q16) {
+        orange++
+      }
+
+      if (q17) {
+        blue++;
+      }
+
+      if (q18) {
+        green++;
+      }
+
+      if (q19) {
+        gold++;
+      }
+
+      if (q20) {
+        orange++;
+      }
+
+      //Show the name of the color with the highest amount of relevant responses
+      var all = [green, blue, orange, gold],
+        maxVal = Math.max.apply(Math.max, all);
+        choiceNames = ["green", "blue", "orange", "gold"],
+        maxValName = choiceNames[all.indexOf(maxVal)];
+  
+        result = maxValName;
+      console.log("the winner is" , result);
 
       //Show results
       console.log("blueScore:" + blue);
