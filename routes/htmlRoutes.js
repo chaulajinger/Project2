@@ -25,13 +25,13 @@ module.exports = function(app) {
   });
 
   // Load result page and pass in an color by id
-  app.get("/example/:id", function(req, res) {
-    db.Color.findOne({ where: { id: req.params.id } }).then(function(color) {
-      res.render("example", {
-        colorstable: color
-      });
-    });
-  });
+  // app.get("/example/:id", function(req, res) {
+  //   db.Color.findOne({ where: { id: req.params.id } }).then(function(color) {
+  //     res.render("example", {
+  //       colorstable: color
+  //     });
+  //   });
+  // });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
