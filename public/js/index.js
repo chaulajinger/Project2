@@ -326,6 +326,19 @@ $("#nav-link").on("click",() => {
 
       console.log("Your color is ", result);
       $("#userName").append("CONGRATULATIONS " + userData.name + " " + result + " Is Your TRUE COLOR !");
+
+      $("#navlink").prop("href", "google.com");
+
+      //Changes the link path based on var result's current value
+      $("#resultsSummary").on("click", function (event) {
+        event.preventDefault();
+      window.location.replace("/colors/" + result);
+      });
+
+
+
+
+
     });
   //});
 });
